@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Navbar from "./components/common/navbar/index";
+
+import SiteFooter from "./components/common/SiteFooter";
+import HomePage from "./components/HomePage";
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AboutPage from "./components/AboutPage";
+import CommiteePage from "./components/CommiteePage";
+import NewsPage from "./components/NewsPage";
+import NoticePage from "./components/NoticePage";
+import EventsPage from "./components/EventsPage";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
+import GalleryPage from "./components/GalleryPage";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <Router>
+                    <Navbar />
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/about" component={AboutPage} />
+                    <Route path="/commitee" component={CommiteePage} />
+                    <Route path="/news" component={NewsPage} />
+                    <Route path="/notice" component={NoticePage} />
+                    <Route path="/events" component={EventsPage} />
+                    <Route path="/gallery" component={GalleryPage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/signup" component={SignupPage} />
+                </Router>
+                <SiteFooter />
+            </div>
+        );
+    }
 }
 
 export default App;
